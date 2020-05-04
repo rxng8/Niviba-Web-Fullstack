@@ -24,4 +24,25 @@ app.get("/docs",(req,res) => {
     res.send("<h1>Hello World! This is docs</h1>");
 });
 
+app.get("/dashboard", (req, app, next) => {
+    const user =  req.session.user,
+	userId = req.session.userId;
+	
+	if(userId == null){
+		res.redirect("/home/login");
+		return;
+	}
+	 
+	var sql="SELECT * FROM `login_details` WHERE `id`='"+userId+"'";
+	 
+    db.query(sql, function(err, results){
+        
+        console.log(results);
+        console.log(req.session);
+        // Render the profile of that user!
+        res.send(req.session.userId);
+        res.send(results[0].password);
+    });	 
+});
+
 module.exports = app
