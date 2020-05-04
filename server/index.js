@@ -13,9 +13,11 @@ app.use(require('./middleware/cors'))
 
 // Routes
 const generalRoutes = require("./routes/generalRoutes");
-const loginRoutes = require("./routes/loginRoutes")
+const loginRoutes = require("./routes/loginRoutes");
+const registerRoutes = require("./routes/loginRoutes");
 app.use(generalRoutes);
 app.use(loginRoutes);
+app.use(registerRoutes);
 
 // Listen
 app.listen(PORT, () => {
