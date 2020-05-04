@@ -7,7 +7,7 @@ app.get("/",(req, res, next) => {
     const executeQuery = require("../middleware/executeQuery");
 
     // config for your database =))
-    const config = require('../db/config');
+    const config = require('../db/config').sql;
 
     // Một query j đó =))
     const qurey = "SELECT * FROM dbo.Users"
