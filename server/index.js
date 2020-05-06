@@ -8,7 +8,10 @@ const InitiateMongoServer = require("./db/db");
 
 // Initiate Mongo Server
 InitiateMongoServer();
-
+// app.use((req, res, next) => {
+//     console.log("Log before use");
+//     next();
+// })
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
