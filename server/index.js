@@ -1,7 +1,8 @@
 // Import and Variables
 const express = require('express');
 const app = express();
-const PORT = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 4000;
+// const PORT = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 4000;
+const PORT = 8080;
 const bodyParser = require('body-parser');
 const InitiateMongoServer = require("./db/db");
 
