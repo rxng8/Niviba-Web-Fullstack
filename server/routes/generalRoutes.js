@@ -4,19 +4,19 @@ const app = express();
 app.get("/",(req, res, next) => {
 
     // executing query middleware =))
-    const executeQuery = require("../middleware/executeQuery");
+    // const executeQuery = require("../middleware/executeQuery");
 
     // config for your database =))
-    const config = require('../db/config').sql;
+    // const config = require('../db/config').sql;
 
     // Một query j đó =))
-    const qurey = "SELECT * FROM dbo.Users"
+    // const qurey = "SELECT * FROM dbo.Users"
 
     // connect to database thôi =))
-    executeQuery(res, config, qurey);
+    // executeQuery(res, config, qurey);
 
     console.log("Get here at generateRoutes/homepage after execute query method!");
-
+    res.send("<h1>Hellooooo</h1>");
     // next();
 });
 
