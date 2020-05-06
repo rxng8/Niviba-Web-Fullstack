@@ -6,20 +6,20 @@
 ### Set up database
 
 1. If you are using My SQL:
-- Do something
-- Do something
+- To be eddited
+- To be eddited
 ```
-    Some Config here =)))
+    To be eddited
 ```
-- Do something
+- To be eddited
 
 2. If you are using Mongo DB:
-- Do something here
+- To be eddited
  
 ```
-    Some config here too =)))
+    To be eddited
 ```
-- Do something here =))
+- To be eddited
 
 ------------------
 
@@ -40,3 +40,14 @@
     cd ./server && npm start
 ```
 -------------------
+
+Run with Docker
+1. To be eddited
+2. To be eddited
+```
+To be eddited
+```
+
+3. To be eddited
+
+------------------
