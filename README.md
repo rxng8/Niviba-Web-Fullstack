@@ -3,27 +3,17 @@
 ### This repo includes: Server : Nodejs based, and Client: React based.
 -----------------
 
-### Set up database
+## Set up database
 
-1. If you are using My SQL:
-- To be eddited
-- To be eddited
+1. Create .env file
 ```
-    To be eddited
+# .env
+PORT=8080
+NODE_ENV=development
 ```
-- To be eddited
-
-2. If you are using Mongo DB:
-- To be eddited
- 
-```
-    To be eddited
-```
-- To be eddited
-
 ------------------
 
-### Now we start running the application:
+## Now we start running the application:
 
 1. Install modules:
 ```
@@ -41,13 +31,24 @@
 ```
 -------------------
 
-Run with Docker
-1. To be eddited
-2. To be eddited
+## If you want to run server and database on Docker
 ```
-To be eddited
+# Start the server with building server and database in docker
+docker-compose up --build
 ```
-
-3. To be eddited
 
 ------------------
+## Inspect database inside docker
+
+```
+# Get name of mongo server
+docker ps
+
+# Get in to docker mongo container
+docker exec -it <mongo server name> /bin/bash
+mongo
+
+# Inspect database with mongo container bash with mongo shell
+```
+### Refer to [this link](https://docs.mongodb.com/manual/mongo/) for mongo shell usage.
+
