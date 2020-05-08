@@ -1,3 +1,5 @@
+// Load env
+require('dotenv').config();
 // Import and Variables
 const express = require('express');
 const app = express();
@@ -5,6 +7,7 @@ const app = express();
 const PORT = 8080;
 const bodyParser = require('body-parser');
 const InitiateMongoServer = require("./db/db");
+
 
 // Initiate Mongo Server
 InitiateMongoServer();
@@ -23,7 +26,7 @@ app.use(require('./middleware/cors'))
 const generalRoutes = require("./routes/generalRoutes");
 const loginRoutes = require("./routes/loginRoutes");
 const registerRoutes = require("./routes/loginRoutes");
-const userMongo = require('./routes/user(mongo)');
+const userMongo = require('./routes/sign_upRoute');
 app.use(generalRoutes);
 app.use(loginRoutes);
 app.use(registerRoutes);
