@@ -11,18 +11,18 @@ const UserController = require('../controllers/user.controller.js');
  */
 
 // Create a new Note
-app.post('/notes', UserController.create);
+app.post('/users', UserController.create);
 
 // Retrieve all Notes
-app.get('/notes', UserController.findAll);
+app.get('/users', UserController.findAll);
 
 // Retrieve a single Note with noteId
-app.get('/notes/:noteId', UserController.findOne);
+app.get('/users/:userId', UserController.findOne);
 
 // Update a Note with noteId
-app.put('/notes/:noteId', UserController.update);
+app.put('/users/:userId', UserController.update);
 
 // Delete a Note with noteId
-app.delete('/notes/:noteId', UserController.delete);
+app.delete('/users/:userId', UserController.delete);
 
 module.exports = app;

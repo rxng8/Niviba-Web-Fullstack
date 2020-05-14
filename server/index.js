@@ -25,11 +25,9 @@ app.use(require('./middleware/cors'))
 // Routes
 const generalRoutes = require("./routes/generalRoutes");
 const loginRoutes = require("./routes/loginRoutes");
-const registerRoutes = require("./routes/loginRoutes");
-const userMongo = require('./routes/sign_upRoute');
+const userMongo = require('./routes/user.routes');
 app.use(generalRoutes);
 app.use(loginRoutes);
-app.use(registerRoutes);
 app.use(userMongo);
 
 // Listen
