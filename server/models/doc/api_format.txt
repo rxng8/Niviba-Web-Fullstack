@@ -1,0 +1,133 @@
+REQUEST
+POST /routing
+
+{
+	"depot": {
+		[
+			{
+				"id": "a1",
+				"name": "Kho Hà Nội",
+				"capacity": 200,
+				"coordinates": {
+					"lat": 199,
+					"lng": 10
+				},
+				"time_window": {
+					"start": 10,
+					"end": 20
+				},
+				"vehicle": {
+					[
+						{
+							"vehicle_id": "c1",
+							"vehicle_capacity": 3
+						},
+						{
+							"vehicle_id": "c2",
+							"vehicle_capacity": 6
+						}
+					]
+				}
+			},
+			{
+				"id": "a2",
+				"name": "Kho trung tâm",
+				"capacity": 400,
+				"coordinates": {
+					"lat": 199,
+					"lng": "10"
+				},
+				"time_window": {
+					"start": 5,
+					"end": 22
+				},
+				"vehicle": {
+					[
+						{
+							"vehicle_id": "c3",
+							"vehicle_capacity": 3
+						},
+						{
+							"vehicle_id": "c4",
+							"vehicle_capacity": 6
+						}
+					]
+				}
+			}
+		]
+	},
+	"location": {
+		[
+			{
+				"id": "b1",
+				"name": "Đại lý Niviba",
+				"demand": 10,
+				"coordinates": {
+					"lat": 169,
+					"lng": 49
+				},
+				"time_window": {
+					"start": 5,
+					"end": 20
+				}
+			},
+			{
+				"id": "b2",
+				"name": "Siêu thị Vinmart",
+				"demand": 40,
+				"coordinates": {
+					"lat": 1699,
+					"lng": 499
+				},
+				"time_window": {
+					"start": 7,
+					"end": 21
+				}
+			}
+		]
+	}
+}
+
+
+RESPONSE
+
+{
+	"dropped_nodes": ["1", "2"],
+	"total_time": 120,
+	"total_load": 32,
+	"route": {
+		[
+			{
+				"vehicle_id": "c1",
+				"time": 20,
+				"load": 19,
+				"steps": {
+					[
+						{
+							"location_id": "a1",
+							"time_range": {
+								"start": 10,
+								"end": 10
+							}
+						},
+						{
+							"location_id": "b2",
+							"time_range": {
+								"start": 13,
+								"end": 13
+							}
+						},
+						{
+							"location_id": "a1",
+							"time_range": {
+								"start": 19,
+								"end": 19
+							}
+						}
+					]
+				}
+			}
+		]
+	}
+
+}
