@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 
-// Create and Save a new Note
+// Create and Save a new User
 exports.create = async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -63,7 +63,6 @@ exports.create = async (req, res) => {
     }
 };
 
-// Retrieve and return all notes from the database.
 exports.findAll = (req, res) => {
     UserModel.find()
     .then(users => {
@@ -75,7 +74,6 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Find a single note with a noteId
 exports.findOne = (req, res) => {
     UserModel.findById(req.params.userId)
     .then(user => {
@@ -97,7 +95,6 @@ exports.findOne = (req, res) => {
     });
 };
 
-// Update a note identified by the noteId in the request
 exports.update = (req, res) => {
     // Validate Request
     if(!req.body.content) {
@@ -106,7 +103,6 @@ exports.update = (req, res) => {
         });
     }
 
-    // Find note and update it with the request body
     const {
         username,
         email,
@@ -136,7 +132,6 @@ exports.update = (req, res) => {
     });
 };
 
-// Delete a note with the specified noteId in the request
 exports.delete = (req, res) => {
     UserModel.findByIdAndRemove(req.params.userId)
     .then(user => {
