@@ -1,0 +1,82 @@
+{
+  "depot": [
+    {
+      "address": "Số 1 Cầu giấy",
+      "capacity": 200,
+      "coordinates": {
+        "lat": 199,
+        "lng": 10
+      },
+      "id": "a1",
+      "name": "Kho Hà Nội",
+      "time_window": {
+        "end": 120,
+        "start": 0
+      },
+      "vehicle": [
+        {
+          "vehicle_capacity": 10,
+          "vehicle_id": "c1"
+        },
+        {
+          "vehicle_capacity": 10,
+          "vehicle_id": "c2"
+        }
+      ]
+    },
+    {
+      "address": "Số 3 Chùa Láng",
+      "capacity": 400,
+      "coordinates": {
+        "lat": 199,
+        "lng": "10"
+      },
+      "id": "a2",
+      "name": "Kho trung tâm",
+      "time_window": {
+        "end": 120,
+        "start": 0
+      },
+      "vehicle": [
+        {
+          "vehicle_capacity": 10,
+          "vehicle_id": "c3"
+        },
+        {
+          "vehicle_capacity": 10,
+          "vehicle_id": "c4"
+        }
+      ]
+    }
+  ],
+  "location": [
+    {
+      "address": "Số 3 Lương Thế Vinh",
+      "coordinates": {
+        "lat": 169,
+        "lng": 49
+      },
+      "demand": 2,
+      "id": "b1",
+      "name": "Đại lý Niviba",
+      "time_window": {
+        "end": 120,
+        "start": 0
+      }
+    },
+    {
+      "address": "Số 144 Xuân Thuỷ, Cầu Giấy",
+      "coordinates": {
+        "lat": 1699,
+        "lng": 499
+      },
+      "demand": 12,
+      "id": "b2",
+      "name": "Siêu thị Vinmart",
+      "time_window": {
+        "end": 120,
+        "start": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "solution": {
+    "dropped_nodes": [],
+    "route": [
+      {
+        "load": 4,
+        "steps": [
+          {
+            "location_id": 0,
+            "time_range": {
+              "end": 0,
+              "start": 0
+            }
+          },
+          {
+            "location_id": 3,
+            "time_range": {
+              "end": 7,
+              "start": 7
+            }
+          },
+          {
+            "location_id": 2,
+            "time_range": {
+              "end": 19,
+              "start": 19
+            }
+          },
+          {
+            "location_id": 0,
+            "time_range": {
+              "end": 35,
+              "start": 35
+            }
+          }
+        ],
+        "time": 35,
+        "vehicle_id": 0
+      },
+      {
+        "load": 0,
+        "steps": [
+          {
+            "location_id": 0,
+            "time_range": {
+              "end": 0,
+              "start": 0
+            }
+          },
+          {
+            "location_id": 0,
+            "time_range": {
+              "end": 0,
+              "start": 0
+            }
+          }
+        ],
+        "time": 0,
+        "vehicle_id": 1
+      },
+      {
+        "load": 0,
+        "steps": [
+          {
+            "location_id": 1,
+            "time_range": {
+              "end": 0,
+              "start": 0
+            }
+          },
+          {
+            "location_id": 1,
+            "time_range": {
+              "end": 0,
+              "start": 0
+            }
+          }
+        ],
+        "time": 0,
+        "vehicle_id": 2
+      },
+      {
+        "load": 0,
+        "steps": [
+          {
+            "location_id": 1,
+            "time_range": {
+              "end": 0,
+              "start": 0
+            }
+          },
+          {
+            "location_id": 1,
+            "time_range": {
+              "end": 0,
+              "start": 0
+            }
+          }
+        ],
+        "time": 0,
+        "vehicle_id": 3
+      }
+    ],
+    "total_load": 4,
+    "total_time": 35
+  },
+  "status": "solution"
+}
