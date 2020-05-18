@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 const DepotSchema =  mongoose.Schema({
-    id: {type: String},
-    name: {type: String},
-    capacity: {type: int},
+    id: {type: String, required: true},
+    name: {type: String, required: true},
+    capacity: {type: Number, required: true},
+    address: {type: String},
     coordinates: {
         lat: {type: Number},
         lng: {type: Number}
@@ -20,4 +21,4 @@ const DepotSchema =  mongoose.Schema({
     ]
 });
 
-module.exports = mongoose.model("Depot", DepotSchema);
+module.exports = mongoose.model("Depot", DepotSchema, "Depot");
