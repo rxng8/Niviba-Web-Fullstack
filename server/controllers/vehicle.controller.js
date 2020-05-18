@@ -1,5 +1,5 @@
 const VehicleModel = require('../models/vehicle.model.js');
-const { check, validationResult} = require("express-validator/check");
+const {check, validationResult} = require("express-validator/check");
 
 
 // Create and Save a new Note
