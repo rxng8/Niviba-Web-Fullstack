@@ -6,7 +6,7 @@ const UserController = require('../controllers/user.controller.js');
 
 /**
  * @method - POST
- * @param - /signup
+ * @param - /users
  * @description - User SignUp
  */
 
