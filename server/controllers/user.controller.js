@@ -141,7 +141,7 @@ exports.delete = (req, res) => {
                 message: "User not found with id " + req.params.userId
             });
         }
-        res.send({message: "Note deleted successfully!"});
+        res.send({message: "User deleted successfully!"});
     }).catch(err => {
         if(err.kind === 'ObjectId' || err.name === 'NotFound') {
             return res.status(404).send({
@@ -149,7 +149,7 @@ exports.delete = (req, res) => {
             });                
         }
         return res.status(500).send({
-            message: "Could not delete note with id " + req.params.userId
+            message: "Could not delete user with id " + req.params.userId
         });
     });
 };
