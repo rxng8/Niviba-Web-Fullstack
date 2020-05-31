@@ -23,12 +23,18 @@ app.use(bodyParser.json());
 app.use(require('./middleware/cors'))
 
 // Routes
-const generalRoutes = require("./routes/generalRoutes");
+const indexRoute = require("./routes/index.routes");
 const loginRoutes = require("./routes/loginRoutes");
-const userMongo = require('./routes/user.routes');
-app.use(generalRoutes);
+const user = require('./routes/user.routes');
+const location = require('./routes/location.routes');
+const depot = require('./routes/depot.routes');
+const vehicle = require('./routes/vehicle.routes');
+app.use(indexRoute);
 app.use(loginRoutes);
-app.use(userMongo);
+app.use(user);
+app.use(location);
+app.use(depot);
+app.use(vehicle);
 
 // Listen
 app.listen(PORT, () => {
