@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const DepotSchema =  mongoose.Schema({
-    id: {type: String, required: true},
+    id: {type: String},
     name: {type: String, required: true},
     capacity: {type: Number, required: true},
     address: {type: String},
