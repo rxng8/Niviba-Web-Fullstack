@@ -14,7 +14,7 @@ exports.create = async (req, res) => {
     } = req.body
 
     try {
-        let depot = await DepotModel.findOne({ id });
+        let depot = await DepotModel.findOne({ id:id });
         if (depot) {
             return res.status(400).json({
                 msg: "Depot Already Exists"
@@ -44,6 +44,7 @@ exports.create = async (req, res) => {
 };
 
 exports.findAll = (req, res) => {
+    
     DepotModel.find()
         .then(depot => {
             res.send(depot);
@@ -56,11 +57,12 @@ exports.findAll = (req, res) => {
 };
 
 exports.findOne = (req, res) => {
-    DepotModel.findOne({ id })
+    
+    DepotModel.findById(req.params.depotId)
         .then(depot => {
             if(!depot) {
                 return res.status(404).send({
-                    message: "Depot not found with id " + req.params.id
+                    message: "Depot not found with id " + req.params.depotId
                 });            
             }
             res.send(depot);
@@ -68,19 +70,78 @@ exports.findOne = (req, res) => {
         .catch(err => {
             if(err.kind === 'ObjectId') {
                 return res.status(404).send({
-                    message: "Depot not found with id " + req.params.id
+                    message: "Depot not found with id " + req.params.depotId
                 });
             }
             return res.status(500).send({
-                message: "Error retrieving Depot with id " + req.params.id
+                message: "Error retrieving Depot with id " + req.params.depotId
             });
         })
 };
 
 exports.update = (req, res) => {
+    // Validate Request
+    if(!req.body.content) {
+        return res.status(400).send({
+            message: "Depot content can not be empty"
+        });
+    }
 
+    const {
+        id,
+        name,
+        capacity,
+        address,
+        coordinates,
+        time_window,
+        vehicle
+    } = req.body
+
+    DepotModel.findByIdAndUpdate(req.params.depotId, {
+        id: id,
+        name: name,
+        capacity: capacity,
+        address: address,
+        coordinates: coordinates,
+        time_window: time_window,
+        vehicle: vehicle
+    }, {new: true})
+    .then(depot => {
+        if(!depot) {
+            return res.status(404).send({
+                message: "Depot not found with id " + req.params.depotId
+            });
+        }
+        res.send(note);
+    }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Depot not found with id " + req.params.depotId
+            });                
+        }
+        return res.status(500).send({
+            message: "Error updating user with id " + req.params.depotId
+        });
+    });
 };
 
 exports.delete = (req, res) => {
-    
+    DepotModel.findByIdAndRemove(req.params.depotId)
+    .then(depot => {
+        if(!depot) {
+            return res.status(404).send({
+                message: "depot not found with id " + req.params.depotId
+            });
+        }
+        res.send({message: "depot deleted successfully!"});
+    }).catch(err => {
+        if(err.kind === 'ObjectId' || err.name === 'NotFound') {
+            return res.status(404).send({
+                message: "depot not found with id " + req.params.depotId
+            });                
+        }
+        return res.status(500).send({
+            message: "Could not delete depot with id " + req.params.depotId
+        });
+    });
 };
