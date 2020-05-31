@@ -10,6 +10,10 @@
 # .env
 PORT=8080
 NODE_ENV=development
+
+USE_DOCKER=FALSE
+# USE_DOCKER=TRUE if you run the website with docker
+
 ```
 ------------------
 
