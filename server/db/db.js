@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
 // Replace this with your MONGOURI.
-let MONGOURI = require('./config').development.connectionString;
-if (process.env.NODE_ENV === 'production') {
-  MONGOURI = require('./config').production.connectionString;
+let MONGOURI = require('./config').mongo_without_docker.connectionString;
+if (process.env.USE_DOCKER === 'TRUE') {
+  MONGOURI = require('./config').mongo_with_docker.connectionString;
 }
 
 const InitiateMongoServer = async () => {
