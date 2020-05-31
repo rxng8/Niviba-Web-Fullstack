@@ -1,27 +1,35 @@
+// Load env
+require('dotenv').config();
 // Import and Variables
 const express = require('express');
 const app = express();
-const PORT = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 4000;
+// const PORT = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 4000;
+const PORT = 8080;
 const bodyParser = require('body-parser');
+const InitiateMongoServer = require("./db/db");
 
+
+// Initiate Mongo Server
+InitiateMongoServer();
+// app.use((req, res, next) => {
+//     console.log("Log before use");
+//     next();
+// })
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //CORS Middleware
-app.use(function (req, res, next) {
-    //Enabling CORS 
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, contentType,Content-Type, Accept, Authorization");
-    next();
-});
+app.use(require('./middleware/cors'))
 
 // Routes
 const generalRoutes = require("./routes/generalRoutes");
-const loginRoutes = require("./routes/loginRoutes")
+const loginRoutes = require("./routes/loginRoutes");
+const userMongo = require('./routes/user.routes');
 app.use(generalRoutes);
 app.use(loginRoutes);
+app.use(userMongo);
+
 // Listen
 app.listen(PORT, () => {
     console.log("Server is running in port", PORT);
