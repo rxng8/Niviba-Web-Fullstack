@@ -1,5 +1,8 @@
 // Load env
-require('dotenv').config();
+// require('dotenv').config();
+
+require('custom-env').env('.env', './env')
+
 // Import and Variables
 const express = require('express');
 const app = express();
@@ -39,4 +42,5 @@ app.use(vehicle);
 // Listen
 app.listen(PORT, () => {
     console.log("Server is running in port", PORT);
+    console.log("Node env: ", process.env.NODE_ENV)
 })
