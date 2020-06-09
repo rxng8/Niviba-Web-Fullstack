@@ -56,3 +56,15 @@ mongo
 ```
 ### Refer to [this link](https://docs.mongodb.com/manual/mongo/) for mongo shell usage.
 
+------------------
+## Testing
+
+1. Testing database with postman:
+    * Testing depot:
+    ```
+    # Type some code here!
+    ```
+    * Testing user login and register:
+    * Testing location:
+    * Testing vehicle:
+    * Testing front-end:
