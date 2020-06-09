@@ -10,8 +10,8 @@ const DepotSchema =  mongoose.Schema({
         lng: {type: Number}
     },
     time_window: {
-        start: {type: Number},
-        end: {type: Number}
+        start: {type: Number, required: true},
+        end: {type: Number},
     },
     vehicle: [
         {
