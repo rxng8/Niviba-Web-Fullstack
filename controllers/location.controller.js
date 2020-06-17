@@ -13,7 +13,7 @@ exports.create = async (req, res) => {
 
     try {
         let location = await LocationModel.findOne({ id:id });
-        if (vehicle) {
+        if (location) {
             return res.status(400).json({
                 msg: "location Already Exists"
             });
