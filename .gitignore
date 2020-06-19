@@ -1,11 +1,11 @@
 node_modules
-./*.env
+# ./*.env
 
 .vscode
-server/.env
+# server/.env
 
 .gitignore
 
 niviba.pem
 
-env
+# env
