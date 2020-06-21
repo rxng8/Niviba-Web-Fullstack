@@ -32,12 +32,14 @@ const user = require('./routes/user.routes');
 const location = require('./routes/location.routes');
 const depot = require('./routes/depot.routes');
 const vehicle = require('./routes/vehicle.routes');
+const solution = require('./routes/solution.routes');
 app.use(indexRoute);
 app.use(loginRoutes);
 app.use(user);
 app.use(location);
 app.use(depot);
 app.use(vehicle);
+app.use(solution);
 
 // Listen
 app.listen(PORT, () => {
