@@ -10,8 +10,8 @@ const LocationSchema = mongoose.Schema({
         lng: {type: Number}
     },
     time_window: {
-        start: {type: Number},
-        end: {type: Number}
+        start: {type: Date},
+        end: {type: Date}
     }
 });
 

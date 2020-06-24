@@ -9,8 +9,8 @@ const SolutionSchema = mongoose.Schema({
               {
                 location_id: {type: Number},
                 time_range: {
-                  end: {type: Number},
-                  start: {type: Number}
+                  end: {type: Date},
+                  start: {type: Date}
                 }
               }
             ],
