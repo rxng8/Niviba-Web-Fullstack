@@ -98,11 +98,11 @@ exports.findOne = (req, res) => {
 
 exports.update = (req, res) => {
     // Validate Request
-    if(!req.body.content) {
-        return res.status(400).send({
-            message: "User content can not be empty"
-        });
-    }
+    // if(!req.body.content) {
+    //     return res.status(400).send({
+    //         message: "User content can not be empty"
+    //     });
+    // }
 
     const {
         username,

@@ -10,7 +10,7 @@ exports.create = async (req, res) => {
         coordinates,
         time_window
     } = req.body
-
+    
     try {
         let location = await LocationModel.findOne({ id:id });
         if (location) {
@@ -78,11 +78,11 @@ exports.findOne = (req, res) => {
 
 exports.update = (req, res) => {
     // Validate Request
-    if(!req.body.content) {
-        return res.status(400).send({
-            message: "vehicle content can not be empty"
-        });
-    }
+    // if(!req.body) {
+    //     return res.status(400).send({
+    //         message: "vehicle content can not be empty"
+    //     });
+    // }
 
     const {
         id,
