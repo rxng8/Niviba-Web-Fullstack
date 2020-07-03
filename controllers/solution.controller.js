@@ -22,7 +22,7 @@ exports.solve = async (req, res) => {
 
     await axios(options)
         .then((solution) => {
-            console.log("Making a request to " + url);
+            // console.log("Making a request to " + url);
             solution_object = solution;
         })
         .catch((err) => {
@@ -30,7 +30,7 @@ exports.solve = async (req, res) => {
         });
 
     if (solution_object) {
-        console.log(solution_object.data)
+        // console.log(solution_object.data)
         res.send(solution_object.data);
     } else {
         res.send("<h2>Failed to make request to the AI server</h2>");
