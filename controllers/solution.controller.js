@@ -5,8 +5,8 @@ const request = require('request');
 // Solution controller
 
 exports.solve = async (req, res) => {
-    // let url = "http://localhost:5555/routing";
-    let url = "http://7b857d957582.ngrok.io/routing"
+    let url = "http://localhost:5555/routing";
+    // let url = "http://7b857d957582.ngrok.io/routing"
     let request_data_JSON = req.body;
     let request_data = JSON.stringify(request_data_JSON);
     // console.log(request_data);
