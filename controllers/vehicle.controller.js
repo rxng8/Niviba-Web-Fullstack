@@ -1,32 +1,33 @@
 const VehicleModel = require('../models/vehicle.model.js');
 const {check, validationResult} = require("express-validator/check");
-const DepotModel = require('../models/depot.model.js');
 
-const updateToDepots = function (depots) {
-    for (depotObject in depots) {
+/**
+ * 
+ * @param {ObjectId} vehicle_id 
+ * @param {Depot} depots 
+ */
+exports.addDepot = async function (req, req) {
+
+    const {vehicle_id, depot} = req.body;
+    for (d of depot) {
         try {
-            let depot = DepotModel.find({id: depotObject.id});
-            if (!depot) {
+            let vehicle = await VehicleModel.findByIdAndUpdate(vehicle_id, { $push: { depot: d._id} }, { new: true, useFindAndModify: false });
+            if (!vehicle) {
                 return res.status(404).send({
-                    message: "Depot not found with id " + depotObject.id
+                    message: "Vehicle not found with id " + vehicle_id
                 }); 
             }
-            const {
-                id,
-                name,
-                capacity,
-                address,
-                coordinates,
-                time_window,
-                vehicle
-            } = req.body
         } catch(err) {
             console.log(err.message);
             res.status(500).send("Error in finding depot to insert vehicle!");
             continue;
         }
+        console.log("Added depot " + d._id);
     }
+    
+    res.send("Added successfully!")
 }
+
 
 exports.create = async (req, res) => {
     const {

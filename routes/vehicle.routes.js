@@ -18,4 +18,6 @@ app.put('/vehicles/:vehicleId', VehicleController.update);
 
 app.delete('/vehicles/:vehicleId', VehicleController.delete);
 
+app.post('vehicles/addDepot', VehicleController.addDepot);
+
 module.exports = app;

@@ -1,5 +1,37 @@
 const DepotModel = require('../models/depot.model.js');
 const { check, validationResult} = require("express-validator/check");
+const { model } = require('../models/depot.model.js');
+
+/**
+ * 
+ * @param {ObjectId} depot_id 
+ * @param {Vehicle[]} vehicle 
+ */
+exports.addVehicle = async function (req, res) {
+
+    const {depot_id, vehicle} = req.body;
+    // console.log(typeof vehicle)
+    // console.log(typeof depot_id)
+    for (let v of vehicle) {
+        try {
+            let depot = await DepotModel.findByIdAndUpdate(depot_id, { $push: { vehicle: v._id} }, { new: true, useFindAndModify: false, useUnifiedTopology: true });
+            if (!depot) {
+                return res.status(404).send({
+                    message: "Error in saving to depot " + depot_id
+                }); 
+            }
+        } catch(err) {
+            console.log(err.message);
+            res.status(500).send("Error in finding depot to insert vehicle!");
+            continue;
+        }
+        console.log("Added vehicle " + v._id);
+    }
+    
+    res.send("Added successfully!")
+}
+
+
 
 
 exports.create = async (req, res) => {
@@ -44,7 +76,6 @@ exports.create = async (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-    
     DepotModel.find()
         .then(depot => {
             res.send(depot);
@@ -57,7 +88,7 @@ exports.findAll = (req, res) => {
 };
 
 exports.findOne = (req, res) => {
-    
+    // console.log("Meow meow")
     DepotModel.findById(req.params.depotId)
         .then(depot => {
             if(!depot) {
@@ -66,6 +97,7 @@ exports.findOne = (req, res) => {
                 });            
             }
             res.send(depot);
+            // console.log("Meow meow")
         })
         .catch(err => {
             if(err.kind === 'ObjectId') {
