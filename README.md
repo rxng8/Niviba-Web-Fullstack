@@ -1,5 +1,7 @@
 # Niviba Website
 
+## AUthor: Alex Nguyen - Gettysburg College
+
 ### This repo includes: Server : Nodejs based, and Client: React based.
 -----------------
 
